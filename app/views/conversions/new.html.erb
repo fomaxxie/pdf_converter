@@ -1,0 +1,18 @@
+<div class="container">
+  <h1>Convert PDF and JPEG Files</h1>
+
+  <% if flash[:alert] %>
+    <div class="alert">
+      <%= flash[:alert] %>
+    </div>
+  <% end %>
+
+  <%= form_with url: conversions_path, html: { multipart: true, data: { turbo: false } } do |form| %>
+    <div class="form-group">
+      <%= form.label :file, "Choose a JPEG or PDF file to convert:" %>
+      <%= form.file_field :file %>
+    </div>
+
+    <%= form.submit "Convert", class: "btn-submit" %>
+  <% end %>
+</div>
